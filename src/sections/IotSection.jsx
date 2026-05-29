@@ -16,7 +16,7 @@ const getSectionScrollTop = (target, { center = false } = {}) => {
   const targetTop = target.getBoundingClientRect().top + window.scrollY
   const targetHeight = target.offsetHeight
 
-  if (center || targetHeight <= availableHeight) {
+  if (center) {
     return targetTop - navbarClearance - (availableHeight - targetHeight) / 2
   }
 
@@ -30,7 +30,9 @@ const scrollToSection = (href) => {
 
   if (!target) return false
 
-  const top = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const baseTop = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const rawTop = target.getBoundingClientRect().top + window.scrollY
+  const top = href === '#contact' ? baseTop : Math.max(0, rawTop)
 
   if (window.lenis) {
     window.lenis.scrollTo(top, {
@@ -125,7 +127,7 @@ const FeatureCard = ({ feature }) => (
 
 const IotSection = () => {
   return (
-    <section id="iot" className="min-h-svh scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32 bg-[#1C324C] px-[12px] pb-[12px] pt-0">
+    <section id="iot" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-0">
       <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1fr] lg:items-end lg:gap-6 min-[1440px]:gap-8">
           <div>

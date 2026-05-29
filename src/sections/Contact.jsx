@@ -46,7 +46,7 @@ const SplitButton = ({ href, children, className = 'inline-block', widthClassNam
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-svh scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32 bg-[#1C324C] px-[12px] pb-[12px] pt-0">
+    <section id="contact" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-0">
     <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
     
        <div className="mx-auto grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-8 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">

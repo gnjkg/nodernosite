@@ -12,7 +12,7 @@ const getSectionScrollTop = (target, { center = false } = {}) => {
   const targetTop = target.getBoundingClientRect().top + window.scrollY
   const targetHeight = target.offsetHeight
 
-  if (center || targetHeight <= availableHeight) {
+  if (center) {
     return targetTop - navbarClearance - (availableHeight - targetHeight) / 2
   }
 
@@ -26,7 +26,9 @@ const scrollToSection = (href) => {
 
   if (!target) return false
 
-  const top = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const baseTop = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const rawTop = target.getBoundingClientRect().top + window.scrollY
+  const top = href === '#contact' ? baseTop : Math.max(0, rawTop)
 
   if (window.lenis) {
     window.lenis.scrollTo(top, {
@@ -214,7 +216,7 @@ const HighlightHeading = ({ children, sectionRef }) => {
   return (
     <h2
       aria-label={children}
-      className="mt-8 text-[34px] font-normal leading-[1.22] tracking-normal sm:text-[44px] lg:text-[50px] min-[1440px]:text-[54px]"
+      className="mt-8 text-[24px] font-normal leading-[1.22] tracking-normal sm:text-[28px] lg:text-[44px] min-[1440px]:text-[50px]"
     >
       <span
         ref={textRef}
@@ -235,7 +237,7 @@ const About = () => {
     <section
       ref={sectionRef}
       id="about"
-      className="min-h-[calc(100svh+max(720px,92svh))] scroll-mt-24 bg-[#1C324C] px-[12px] pb-[12px] pt-0 md:scroll-mt-28 lg:scroll-mt-32"
+      className="min-h-[calc(100svh+max(720px,92svh))] scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-0"
     >
       <div className="sticky top-0 mx-auto grid min-h-[calc(100svh-25px)] w-full max-w-[1704px] items-center gap-12 bg-[#1C324C] px-5 py-16 sm:px-9 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1fr)] lg:gap-10 lg:px-16 lg:py-24 min-[1180px]:gap-14 xl:gap-[72px] xl:px-[200px] xl:py-[118px] min-[1440px]:gap-[84px]">
         <AboutImage />

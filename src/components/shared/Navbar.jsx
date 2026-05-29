@@ -18,7 +18,7 @@ const getSectionScrollTop = (target, { center = false } = {}) => {
   const targetTop = target.getBoundingClientRect().top + window.scrollY
   const targetHeight = target.offsetHeight
 
-  if (center || targetHeight <= availableHeight) {
+  if (center) {
     return targetTop - navbarClearance - (availableHeight - targetHeight) / 2
   }
 
@@ -32,15 +32,17 @@ const scrollToSection = (href) => {
 
   if (!target) return false
 
-  const top = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const baseTop = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const rawTop = target.getBoundingClientRect().top + window.scrollY
+  const top = href === '#contact' ? baseTop : Math.max(0, rawTop)
 
   if (window.lenis) {
-  window.lenis.scrollTo(top, {
-    force: true,
-    duration: href === '#contact' ? 0.4 : 1.1,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  })
-}else {
+    window.lenis.scrollTo(top, {
+      force: true,
+      duration: href === '#contact' ? 0.4 : 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    })
+  } else {
     window.scrollTo({
       top,
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
@@ -257,8 +259,10 @@ const Navbar = () => {
     <>
       <div className="relative z-[60] h-12">
         <header className={shellClass}>
-          <div className={containerClass}>
-            <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-0 ]  " />
+            <div className={containerClass}>
+              <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
               <div className="hidden lg:block">
                 <Logo compact={isScrolled} onClick={handleNavClick} />
               </div>
@@ -271,6 +275,7 @@ const Navbar = () => {
                 Discuss Your Workflow
               </HeaderButton>
               <MobileMenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(true)} />
+            </div>
             </div>
           </div>
         </header>

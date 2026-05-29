@@ -23,7 +23,7 @@ const getSectionScrollTop = (target, { center = false } = {}) => {
   const targetTop = target.getBoundingClientRect().top + window.scrollY
   const targetHeight = target.offsetHeight
 
-  if (center || targetHeight <= availableHeight) {
+  if (center) {
     return targetTop - navbarClearance - (availableHeight - targetHeight) / 2
   }
 
@@ -37,7 +37,9 @@ const scrollToSection = (href) => {
 
   if (!target) return false
 
-  const top = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const baseTop = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const rawTop = target.getBoundingClientRect().top + window.scrollY
+  const top = href === '#contact' ? baseTop : Math.max(0, rawTop)
 
   if (window.lenis) {
     window.lenis.scrollTo(top, { force: true })
@@ -119,7 +121,7 @@ const FooterLink = ({ href, children }) => {
 
 const Footer = () => {
   return (
-    <footer className="scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32 bg-[#1C324C] px-[12px] pb-0 pt-0">
+    <footer className="scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-0 pt-0">
       <div className="mx-auto w-full max-w-[1704px] bg-[#1C324C] px-5 pb-8 pt-8 sm:px-9 sm:pb-10 sm:pt-10 lg:px-16 lg:pb-12 lg:pt-14 xl:px-[200px] xl:pb-6 xl:pt-24">
         
 

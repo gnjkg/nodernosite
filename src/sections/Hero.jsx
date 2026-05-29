@@ -29,7 +29,7 @@ const getSectionScrollTop = (target, { center = false } = {}) => {
   const targetTop = target.getBoundingClientRect().top + window.scrollY
   const targetHeight = target.offsetHeight
 
-  if (center || targetHeight <= availableHeight) {
+  if (center) {
     return targetTop - navbarClearance - (availableHeight - targetHeight) / 2
   }
 
@@ -43,7 +43,9 @@ const scrollToSection = (href) => {
 
   if (!target) return false
 
-  const top = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const baseTop = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
+  const rawTop = target.getBoundingClientRect().top + window.scrollY
+  const top = href === '#contact' ? baseTop : Math.max(0, rawTop)
 
   if (window.lenis) {
     window.lenis.scrollTo(top, { force: true })
@@ -115,7 +117,7 @@ const SplitText = ({ text, as: Tag = 'span', className = '', wordDelay = 42, sta
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-svh scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32 bg-[#1C324C] px-[12px] pt-[12px]">
+    <section id="home" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pt-[12px]">
       <style>
         {`
           @keyframes hero-split-in {

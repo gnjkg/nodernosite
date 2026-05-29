@@ -46,7 +46,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="min-h-svh scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32 bg-[#1C324C] px-[12px] pb-[12px] pt-[20px]">
+    <section id="services" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-[12px]">
       <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-14 sm:px-9 sm:py-18 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[122px]">
         <div className="mx-auto mb-10 max-w-[690px] text-center text-white sm:mb-14 lg:mb-[72px]">
           <p className="text-[11px] font-normal uppercase tracking-[0.34em] text-white">Services</p>

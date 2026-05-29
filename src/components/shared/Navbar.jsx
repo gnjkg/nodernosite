@@ -136,7 +136,7 @@ const HeaderButton = ({ href, children, onClick }) => (
 const DesktopNav = ({ onNavigate }) => (
   <nav
     aria-label="Primary navigation"
-    className="hidden h-[48px] w-[352px] items-center justify-center gap-[41px] rounded-[10px] border-2 border-white/20 bg-white/[0.07] px-10 text-[14px] font-normal capitalize shadow-[0_80px_100px_-19px_rgba(0,0,0,0.25),inset_0_0_38.8px_rgba(255,255,255,0.1)] backdrop-blur-[14px] backdrop-saturate-150 [backdrop-filter:blur(14px)_saturate(150%)] [-webkit-backdrop-filter:blur(34px)_saturate(150%)] lg:flex"
+    className="hidden h-[48px] w-[352px] items-center justify-center gap-[41px] rounded-[10px] border-2 border-white/30 bg-white/[0.23] px-10 text-[14px] font-normal capitalize  backdrop-blur-[14px] backdrop-saturate-150 [backdrop-filter:blur(14px)_saturate(150%)] [-webkit-backdrop-filter:blur(34px)_saturate(150%)] lg:flex"
   >
     {navItems.map((item) => (
       <a
@@ -260,7 +260,7 @@ const Navbar = () => {
       <div className="relative z-[60] h-12">
         <header className={shellClass}>
           <div className="relative">
-            <div className="pointer-events-none absolute inset-0 ]  " />
+            <div className="pointer-events-none absolute inset-0" />
             <div className={containerClass}>
               <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
               <div className="hidden lg:block">

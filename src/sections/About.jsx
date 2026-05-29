@@ -68,7 +68,7 @@ const avatars = [
   },
   {
     name: 'Gian Jake Gulfan',
-    position: 'UI/UX DESIGNNER | FRONTEND DEVELOPER',
+    position: 'UI/UX DESIGNER | FRONTEND DEVELOPER',
     image:
       'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"%3E%3Cdefs%3E%3ClinearGradient id="a" x1="0" y1="0" x2="1" y2="1"%3E%3Cstop stop-color="%23F7E3B0"/%3E%3Cstop offset="1" stop-color="%232E78C7"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="96" height="96" rx="48" fill="url(%23a)"/%3E%3Ccircle cx="48" cy="36" r="17" fill="%23FFF1D1"/%3E%3Cpath d="M20 87c5-19 16-30 28-30s23 11 28 30" fill="%231A3B63"/%3E%3C/svg%3E',
   },

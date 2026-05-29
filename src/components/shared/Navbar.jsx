@@ -144,8 +144,10 @@ const DesktopNav = ({ onNavigate }) => (
         href={`#${item.toLowerCase()}`}
         className="group leading-none focus:outline-none"
         onClick={(event) => onNavigate(event, event.currentTarget.getAttribute('href'))}
-      >
-        <RevealText>{item}</RevealText>
+      ><span className="relative inline-block after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
+         <RevealText>{item}</RevealText>
+      </span>
+       
       </a>
     ))}
   </nav>

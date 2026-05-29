@@ -59,7 +59,7 @@ const Contact = () => {
     </p>
 
     <h2 className="mt-5 max-w-[620px] text-[30px] font-normal leading-[1.15] tracking-normal sm:text-[34px] lg:text-[38px] min-[1440px]:text-[42px]">
-      The best systems <br />begin with the right conversation.
+      The best systems begin with the right conversation.
     </h2>
 
     <p className="mt-5 max-w-[420px] text-[14px] font-normal leading-[1.65] text-white sm:text-[15px]">

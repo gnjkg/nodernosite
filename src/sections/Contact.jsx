@@ -49,10 +49,10 @@ const Contact = () => {
     <section id="contact" className="min-h-svh scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32 bg-[#1C324C] px-[12px] pb-[12px] pt-0">
     <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
     
-       <div className="mx-auto grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-14 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">
+       <div className="mx-auto grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-8 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">
         {/* Left — Header + Image */}
         {/* Left — Header + Image */}
-<div className="flex flex-col items-center justify-center lg:items-start">
+<div className="flex flex-col items-start justify-center">
   <div className="max-w-[500px] text-white">
     <p className="text-[11px] font-normal uppercase tracking-[0.32em] text-white">
       GET IN TOUCH
@@ -96,7 +96,7 @@ const Contact = () => {
          <div className="flex w-full max-w-[540px] flex-col gap-8 ">
 
           {/* First / Last */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             
             <div className="flex flex-col gap-1.5">
               <label className="text-[11px] font-medium tracking-wide uppercase text-white">
@@ -121,7 +121,7 @@ const Contact = () => {
           </div>
 
           {/* Email / Phone */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
               <label className="text-[11px] font-medium tracking-wide uppercase text-white">
                 Email

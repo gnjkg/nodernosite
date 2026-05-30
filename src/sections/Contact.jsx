@@ -113,12 +113,7 @@ const handleSubmit = async (event) => {
                     Bring the workflows, bottlenecks, and growth plans. We'll figure out the rest together.
                   </p>
 
-                  <a
-                    href="mailto:support@noderno.dev"
-                    className="mt-4 inline-block text-sm text-white underline underline-offset-4"
-                  >
-                    support@noderno.dev
-                  </a>
+                 
                 </div>
 
                 <div className="mt-8 w-full max-w-[500px] lg:max-w-[520px]">

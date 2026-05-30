@@ -138,12 +138,12 @@ const Footer = () => {
 
             <address className="mt-8 not-italic sm:mt-10">
               <div>
-  <a
-    href="mailto:noderno@gmail.com"
-    className="relative inline-block pb-1 text-[18px] font-normal leading-none text-white transition  sm:text-[16px] after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 focus-visible:after:scale-x-100 motion-reduce:after:transition-none"
-  >
-    noderno@gmail.com
-  </a>
+          <a
+            href="mailto:support@noderno.dev"
+            className="mt-4 inline-block text-sm text-white underline underline-offset-4"
+          >
+            support@noderno.dev
+          </a>
 
   <a
    

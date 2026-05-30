@@ -19,10 +19,13 @@ const ArrowUpRight = ({ className = '' }) => (
   </svg>
 )
 
-const SplitButton = ({ href, children, className = 'inline-block', widthClassName = 'w-full max-w-[224px] sm:w-[224px]' }) => (
-  <a
-    href={href}
-    onClick={(event) => handleHeroNavigate(event, href)}
+const SplitSubmitButton = ({
+  children,
+  className = 'inline-block',
+  widthClassName = 'w-full max-w-[224px] sm:w-[224px]',
+}) => (
+  <button
+    type="submit"
     className={`group relative aspect-[253/49] max-w-full text-[14px] font-normal text-[#1d71c6] drop-shadow-[0_24px_50px_rgba(7,48,101,0.16)] transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${widthClassName} ${className}`}
   >
     <img
@@ -31,172 +34,222 @@ const SplitButton = ({ href, children, className = 'inline-block', widthClassNam
       aria-hidden="true"
       className="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:brightness-[0.98]"
     />
+
     <span className="absolute left-0 top-0 z-10 flex h-full w-[76%] items-center justify-center pb-[1px] capitalize leading-none">
       <span className="relative inline-block after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
         {children}
       </span>
     </span>
+
     <span className="absolute right-[2.8%] top-0 z-10 flex h-full w-[19.8%] items-center justify-center pb-[1px]">
-      <ArrowUpRight className="size-5 transition-transform duration-300 ease-out group-hover:-rotate-[-45deg]" />
+      <ArrowUpRight className="size-5 transition-transform duration-300 ease-out group-hover:rotate-45" />
     </span>
-  </a>
+  </button>
 )
-
-
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-0">
-    <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
-    
-       <div className="mx-auto w-full max-w-[1450px] overflow-hidden rounded-[26px] bg-[#1C324C]/80 sm:rounded-[30px] min-[1440px]:rounded-[34px]">
-         <div className="grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-8 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">
-       
-<div className="flex flex-col items-start justify-center">
-  <div className="max-w-[500px] text-white">
-    <p className="text-[11px] font-normal uppercase tracking-[0.32em] text-white">
-      GET IN TOUCH
-    </p>
-
-    <h2 className="mt-5 max-w-[620px] text-[30px] font-normal leading-[1.15] tracking-normal sm:text-[34px] lg:text-[38px] min-[1440px]:text-[42px]">
-      The best systems begin with the right conversation.
-    </h2>
-
-    <p className="mt-5 max-w-[420px] text-[14px] font-normal leading-[1.65] text-white sm:text-[15px]">
-      Bring the workflows, bottlenecks, and growth plans. We'll figure out the rest together.
-    </p>
-  </div>
-
-  <div className="mt-8 w-full max-w-[500px] lg:max-w-[520px]">
-    <div className="relative aspect-[627/504] w-full overflow-hidden">
-      <svg aria-hidden="true" className="pointer-events-none absolute size-0" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <clipPath id="contact-bg" clipPathUnits="objectBoundingBox">
-            <path
-              transform="scale(0.0015948963 0.001984127)"
-              d="M627 467V37C627 16.5655 610.435 0 590 0H266.237C249.25 0 234.495 11.6876 230.606 28.224C226.717 44.7604 211.962 56.448 194.974 56.448H37C16.5654 56.448 0 73.0135 0 93.448V467C0 487.435 16.5655 504 37 504H590C610.435 504 627 487.435 627 467Z"
-            />
-          </clipPath>
-        </defs>
-      </svg>
-
-      <img
-        src={contactBg}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 size-full object-cover"
-        style={{ clipPath: 'url(#contact-bg)' }}
-      />
-    </div>
-  </div>
-</div>
-        
- 
-         <div className="flex w-full max-w-[540px] flex-col gap-8 ">
-
-       
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-medium tracking-wide uppercase text-white">
-                First name
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                className=" text-normal border-[1px] border-white rounded-lg px-3 py-2 text-sm text-white placeholder-[#1C324C]/20 outline-none focus:bg-white/[0.08] transition"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-medium tracking-wide uppercase text-white">
-                Last name
-              </label>
-              <input
-                type="text"
-                placeholder=""
-                className=" text-normal border-[1px] border-white rounded-lg px-3 py-2 text-sm text-white placeholder-[#1C324C]/20 outline-none  focus:bg-white/[0.08] transition"
-              />
-            </div>
-          </div>
-
-      
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-medium tracking-wide uppercase text-white">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder=""
-                className=" text-normal border-[1px] border-white rounded-lg px-3 py-2 text-sm text-white placeholder-[#1C324C]/20 outline-none focus:bg-white/[0.08] transition"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label className="text-[12px] font-medium tracking-wide uppercase text-white">
-                Phone
-              </label>
-              <input
-                type="tel"
-                placeholder=""
-                className=" text-normal border-[1px] border-white rounded-lg px-3 py-2 text-sm text-white placeholder-[#1C324C]/20 outline-none  focus:bg-white/[0.08] transition"
-              />
-            </div>
-          </div>
-
-         
-          <div className="flex flex-col gap-1">
-            <label className="text-[12px] font-normal tracking-wide uppercase text-white">
-              Subject
-            </label>
-            <div className="relative">
-    <select
-      className="w-full bg-white/5 border border-white rounded-lg px-3 py-2 text-sm text-[#E8F2FF] outline-none focus:bg-white/[0.08] transition appearance-none cursor-pointer pr-9"
+    <section
+      id="contact"
+      className="min-h-svh scroll-mt-[78px] bg-[#1C324C] px-[12px] pb-[12px] pt-0 lg:scroll-mt-[70px]"
     >
-      <option value="" disabled selected className="bg-[#1C324C]">Select a subject</option>
-      <option value="general" className="bg-[#1C324C] font-normal">General Inquiry</option>
-      <option value="project" className="bg-[#1C324C] font-normal">Project Collaboration</option>
-      <option value="support" className="bg-[#1C324C] font-normal">Support</option>
-      <option value="other" className="bg-[#1C324C] font-normal">Other</option>
-    </select>
-    <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-4 w-4 text-[#7BAFD4]"
-        viewBox="0 0 20 20"
-        fill="white"
-      >
-        <path
-          fillRule="evenodd"
-          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-          clipRule="evenodd"
-        />
-      </svg>
-    </div>
-  </div>
-          </div>
+      <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
+        <div className="mx-auto w-full max-w-[1450px] overflow-hidden rounded-[26px] bg-[#1C324C]/80 sm:rounded-[30px] min-[1440px]:rounded-[34px]">
+          <div className="grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-8 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">
+            <div className="flex flex-col items-start justify-center">
+              <div className="max-w-[500px] text-white">
+                <p className="text-[11px] font-normal uppercase tracking-[0.32em] text-white">
+                  GET IN TOUCH
+                </p>
 
-        
-          <div className="flex flex-col gap-1.5">
-            <label className="text-[12px] font-medium tracking-wide uppercase text-white">
-              Message
-            </label>
-            <textarea
-              rows={4}
-              placeholder=""
-              className=" text-normal border-[1px] border-white rounded-lg px-3 py-2 text-sm text-white  outline-none  focus:bg-white/[0.08] transition resize-none leading-relaxed"
-            />
-          </div>
+                <h2 className="mt-5 max-w-[620px] text-[30px] font-normal leading-[1.15] tracking-normal sm:text-[34px] lg:text-[38px] min-[1440px]:text-[42px]">
+                  The best systems begin with the right conversation.
+                </h2>
 
-       
-          <SplitButton className="mt-1 w-full  text-white font-medium text-sm rounded-lg py-2.5 ">
-            Send message
-          </SplitButton>
+                <p className="mt-5 max-w-[420px] text-[14px] font-normal leading-[1.65] text-white sm:text-[15px]">
+                  Bring the workflows, bottlenecks, and growth plans. We'll figure out the rest together.
+                </p>
+
+               
+              </div>
+
+              <div className="mt-8 w-full max-w-[500px] lg:max-w-[520px]">
+                <div className="relative aspect-[627/504] w-full overflow-hidden">
+                  <svg
+                    aria-hidden="true"
+                    className="pointer-events-none absolute size-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <clipPath id="contact-bg" clipPathUnits="objectBoundingBox">
+                        <path
+                          transform="scale(0.0015948963 0.001984127)"
+                          d="M627 467V37C627 16.5655 610.435 0 590 0H266.237C249.25 0 234.495 11.6876 230.606 28.224C226.717 44.7604 211.962 56.448 194.974 56.448H37C16.5654 56.448 0 73.0135 0 93.448V467C0 487.435 16.5655 504 37 504H590C610.435 504 627 487.435 627 467Z"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+
+                  <img
+                    src={contactBg}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 size-full object-cover"
+                    style={{ clipPath: 'url(#contact-bg)' }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <form
+              action="https://formspree.io/f/xzdwwnoe"
+              method="POST"
+              className="flex w-full max-w-[540px] flex-col gap-8"
+            >
+              <input type="hidden" name="_subject" value="New message from Noderno website" />
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="firstName"
+                    className="text-[12px] font-medium uppercase tracking-wide text-white"
+                  >
+                    First name
+                  </label>
+                  <input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    required
+                    className="text-normal rounded-lg border-[1px] border-white bg-transparent px-3 py-2 text-sm text-white outline-none transition placeholder:text-white/40 focus:bg-white/[0.08]"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="lastName"
+                    className="text-[12px] font-medium uppercase tracking-wide text-white"
+                  >
+                    Last name
+                  </label>
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    required
+                    className="text-normal rounded-lg border-[1px] border-white bg-transparent px-3 py-2 text-sm text-white outline-none transition placeholder:text-white/40 focus:bg-white/[0.08]"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="email"
+                    className="text-[12px] font-medium uppercase tracking-wide text-white"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="text-normal rounded-lg border-[1px] border-white bg-transparent px-3 py-2 text-sm text-white outline-none transition placeholder:text-white/40 focus:bg-white/[0.08]"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="phone"
+                    className="text-[12px] font-medium uppercase tracking-wide text-white"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    className="text-normal rounded-lg border-[1px] border-white bg-transparent px-3 py-2 text-sm text-white outline-none transition placeholder:text-white/40 focus:bg-white/[0.08]"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="subject"
+                  className="text-[12px] font-normal uppercase tracking-wide text-white"
+                >
+                  Subject
+                </label>
+
+                <div className="relative">
+                  <select
+                    id="subject"
+                    name="subject"
+                    required
+                    defaultValue=""
+                    className="w-full cursor-pointer appearance-none rounded-lg border border-white bg-white/5 px-3 py-2 pr-9 text-sm text-[#E8F2FF] outline-none transition focus:bg-white/[0.08]"
+                  >
+                    <option value="" disabled className="bg-[#1C324C]">
+                      Select a subject
+                    </option>
+                    <option value="General Inquiry" className="bg-[#1C324C] font-normal">
+                      General Inquiry
+                    </option>
+                    <option value="Project Collaboration" className="bg-[#1C324C] font-normal">
+                      Project Collaboration
+                    </option>
+                    <option value="Support" className="bg-[#1C324C] font-normal">
+                      Support
+                    </option>
+                    <option value="Other" className="bg-[#1C324C] font-normal">
+                      Other
+                    </option>
+                  </select>
+
+                  <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-[#7BAFD4]"
+                      viewBox="0 0 20 20"
+                      fill="white"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label
+                  htmlFor="message"
+                  className="text-[12px] font-medium uppercase tracking-wide text-white"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="text-normal resize-none rounded-lg border-[1px] border-white bg-transparent px-3 py-2 text-sm leading-relaxed text-white outline-none transition focus:bg-white/[0.08]"
+                />
+              </div>
+
+              <SplitSubmitButton className="mt-1 w-full text-sm font-medium text-white">
+                Send message
+              </SplitSubmitButton>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

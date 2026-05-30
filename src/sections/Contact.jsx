@@ -55,35 +55,40 @@ const Contact = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-    setErrorMessage('')
+const handleSubmit = async (event) => {
+  event.preventDefault()
+  setIsSubmitting(true)
+  setErrorMessage('')
 
-    const form = event.currentTarget
-    const formData = new FormData(form)
+  const form = event.currentTarget
+  const formData = new FormData(form)
 
-    try {
-      const response = await fetch('https://formspree.io/f/xzdwwnoe', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
-      })
+  const selectedSubject = formData.get('inquirySubject')
 
-      if (!response.ok) {
-        throw new Error('Form submission failed')
-      }
+  formData.set('Inquiry Subject', selectedSubject)
+  formData.set('_subject', `New ${selectedSubject} message from Noderno website`)
 
-      form.reset()
-      setShowSuccessModal(true)
-    } catch (error) {
-      setErrorMessage('Something went wrong. Please try again or email us directly at support@noderno.dev.')
-    } finally {
-      setIsSubmitting(false)
+  try {
+    const response = await fetch('https://formspree.io/f/xzdwwnoe', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error('Form submission failed')
     }
+
+    form.reset()
+    setShowSuccessModal(true)
+  } catch (error) {
+    setErrorMessage('Something went wrong. Please try again or email us directly at support@noderno.dev.')
+  } finally {
+    setIsSubmitting(false)
   }
+}
 
   return (
     <>

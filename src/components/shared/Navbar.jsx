@@ -98,7 +98,7 @@ const RevealText = ({ children }) => (
 
 const Logo = ({ compact = false, onClick }) => (
   <a
-    href="#home"
+    href="/"
     className="inline-flex h-12 items-center"
     aria-label="Noderno home"
     onClick={(event) => onClick?.(event, '#home')}

@@ -218,17 +218,17 @@ const Contact = () => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label
-                    htmlFor="subject"
-                    className="text-[12px] font-normal uppercase tracking-wide text-white"
-                  >
-                    Subject
-                  </label>
+                <label
+                  htmlFor="inquirySubject"
+                  className="text-[12px] font-normal uppercase tracking-wide text-white"
+                >
+                  Subject
+                </label>
 
                   <div className="relative">
                     <select
-                      id="subject"
-                      name="subject"
+                      id="inquirySubject"
+                      name="inquirySubject"
                       required
                       defaultValue=""
                       className="w-full cursor-pointer appearance-none rounded-lg border border-white bg-white/5 px-3 py-2 pr-9 text-sm text-[#E8F2FF] outline-none transition focus:bg-white/[0.08]"

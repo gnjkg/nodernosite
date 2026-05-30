@@ -146,11 +146,11 @@ const Footer = () => {
           </a>
 
   <a
-   
-    className="mt-4 block w-fit pb-1 "
-  >
-    +63 9123456789
-  </a>
+  href="tel:+639241386037"
+  className="mt-4 block w-fit pb-1 text-sm text-white underline underline-offset-4"
+>
+  +63 924 138 6037
+</a>
 </div>
             </address>
           </div>

@@ -98,7 +98,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             
             <div className="flex flex-col gap-1.5">
-              <label className="text-[11px] font-medium tracking-wide uppercase text-white">
+              <label className="text-[14px] font-medium tracking-wide uppercase text-white">
                 First name
               </label>
               <input
@@ -108,7 +108,7 @@ const Contact = () => {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-[11px] font-medium tracking-wide uppercase text-white">
+              <label className="text-[14px] font-medium tracking-wide uppercase text-white">
                 Last name
               </label>
               <input
@@ -122,7 +122,7 @@ const Contact = () => {
       
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="flex flex-col gap-1.5">
-              <label className="text-[11px] font-medium tracking-wide uppercase text-white">
+              <label className="text-[14px] font-medium tracking-wide uppercase text-white">
                 Email
               </label>
               <input
@@ -132,7 +132,7 @@ const Contact = () => {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-[11px] font-medium tracking-wide uppercase text-white">
+              <label className="text-[14px] font-medium tracking-wide uppercase text-white">
                 Phone
               </label>
               <input
@@ -145,7 +145,7 @@ const Contact = () => {
 
          
           <div className="flex flex-col gap-1">
-            <label className="text-[11px] font-normal tracking-wide uppercase text-white">
+            <label className="text-[14px] font-normal tracking-wide uppercase text-white">
               Subject
             </label>
             <div className="relative">
@@ -177,7 +177,7 @@ const Contact = () => {
 
         
           <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-medium tracking-wide uppercase text-white">
+            <label className="text-[14px] font-medium tracking-wide uppercase text-white">
               Message
             </label>
             <textarea

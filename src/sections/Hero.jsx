@@ -1,6 +1,7 @@
 import Navbar from '@/components/shared/Navbar'
 import heroVideo from '@/assets/videos/hero-video.mp4'
 import buttonShape from '@/assets/images/Button.svg'
+import heroPoster from '@/assets/images/hero-img.jpg'
 
 const ArrowUpRight = ({ className = '' }) => (
   <svg
@@ -209,16 +210,17 @@ const Hero = () => {
         `}
       </style>
       <div className="hero-video-shell relative min-h-[var(--hero-shell-height)] w-full overflow-hidden rounded-[26px] bg-[#1d71c6] px-5 py-6 text-white [--hero-shell-radius:26px] sm:rounded-[32px] sm:px-9 sm:[--hero-shell-radius:32px] lg:rounded-[27px] lg:px-16 lg:py-7 lg:[--hero-shell-radius:27px] xl:px-[200px] min-[1729px]:px-[calc((100%-1304px)/2)]">
-        <video
-          src={heroVideo}
-          aria-hidden="true"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 size-full object-cover object-[52%_50%] lg:object-center"
-        />
+       <video
+  src={heroVideo}
+  poster={heroPoster}
+  aria-hidden="true"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
+  className="absolute inset-0 size-full object-cover object-[52%_50%] lg:object-center"
+/>
         <div className="absolute inset-0 bg-[#0b3f85]/[0.02]" aria-hidden="true" />
 
         <div className="hero-navbar-reveal relative z-20">

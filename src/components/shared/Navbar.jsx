@@ -101,16 +101,25 @@ const Logo = ({ compact = false }) => (
     href="/"
     className="inline-flex h-12 items-center focus:outline-none focus-visible:outline-none"
     aria-label="Noderno home"
-    onClick={(event) => {
-      event.preventDefault()
+    oonClick={(event) => {
+  event.preventDefault()
 
-      window.history.replaceState(null, '', '/')
+  if (window.location.hash) {
+    window.history.replaceState(null, '', window.location.pathname)
+  }
 
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    }}
+  if (window.lenis) {
+    window.lenis.scrollTo(0, {
+      force: true,
+      duration: 1,
+    })
+  } else {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+}}
   >
     <img
       src={compact ? logoMark : logoWhite}

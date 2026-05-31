@@ -99,7 +99,10 @@ const RevealText = ({ children }) => (
 const Logo = ({ compact = false }) => (
   <a
     href="/"
-    className="inline-flex h-12 w-[154px] items-center overflow-hidden focus:outline-none focus-visible:outline-none [webkit-tap-highlight-color:transparent]"
+    style={{
+  WebkitTapHighlightColor: 'transparent',
+}}
+   className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 [webkit-tap-highlight-color:transparent]"
     aria-label="Noderno home"
     onClick={(event) => {
       event.preventDefault()

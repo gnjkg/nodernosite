@@ -102,7 +102,11 @@ const Logo = ({ compact = false }) => (
     draggable="false"
     onDragStart={(e) => e.preventDefault()}
     style={{ WebkitTapHighlightColor: 'transparent' }}
-    className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0"
+    className={`inline-flex h-12 items-center overflow-hidden rounded-[10px] border-2 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
+  compact
+    ? 'w-[72px] justify-center border-white/30 bg-white/[0.23] backdrop-blur-[14px] backdrop-saturate-150'
+    : 'w-[154px] border-transparent bg-transparent'
+}`}
     aria-label="Noderno home"
     onClick={(event) => {
       event.preventDefault()

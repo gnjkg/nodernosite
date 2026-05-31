@@ -290,12 +290,12 @@ const Navbar = () => {
             <div className={containerClass}>
               <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
                       <div className="hidden lg:block">
-                  <Logo compact={isScrolled} />
-                </div>
+           <Logo />
+          </div>
 
-                <div className="lg:hidden">
-                  <Logo compact />
-                </div>
+          <div className="lg:hidden">
+            <Logo />
+          </div>
 
               <DesktopNav onNavigate={handleNavClick} />
               <HeaderButton href="#contact" onClick={handleNavClick}>

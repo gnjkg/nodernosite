@@ -124,13 +124,12 @@ const AvatarItem = ({ avatar, index }) => {
       style={{ zIndex: avatars.length - index }}
     >
       <button
-  type="button"
-  onTouchEnd={() => setIsOpen((current) => !current)}
-  onClick={() => setIsOpen((current) => !current)}
-  className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
-  aria-label={`${avatar.name}, ${avatar.position}`}
-  aria-expanded={isOpen}
->
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+        className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
+        aria-label={`${avatar.name}, ${avatar.position}`}
+        aria-expanded={isOpen}
+      >
         <img
           src={avatar.image}
           alt=""

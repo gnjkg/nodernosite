@@ -209,7 +209,7 @@ const Hero = () => {
           }
         `}
       </style>
-      <div className="hero-video-shell relative min-h-[var(--hero-shell-height)] w-full overflow-hidden rounded-[26px] bg-[#1d71c6] px-5 py-6 text-white [--hero-shell-radius:26px] sm:rounded-[32px] sm:px-9 sm:[--hero-shell-radius:32px] lg:rounded-[27px] lg:px-16 lg:py-7 lg:[--hero-shell-radius:27px] xl:px-[200px] min-[1729px]:px-[calc((100%-1304px)/2)]">
+      <div className="hero-video-shell relative min-h-[var(--hero-shell-height)] w-full overflow-hidden rounded-[26px]  px-5 py-6 text-white [--hero-shell-radius:26px] sm:rounded-[32px] sm:px-9 sm:[--hero-shell-radius:32px] lg:rounded-[27px] lg:px-16 lg:py-7 lg:[--hero-shell-radius:27px] xl:px-[200px] min-[1729px]:px-[calc((100%-1304px)/2)]">
        <video
   src={heroVideo}
   poster={heroPoster}

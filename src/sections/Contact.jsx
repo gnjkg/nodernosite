@@ -291,7 +291,7 @@ const handleSubmit = async (event) => {
 
                 <BlueButton
                   isSubmitting={isSubmitting}
-                  className="mt-1 w-full text-sm font-normal text-white"
+                  className="mt-1 w-full text-white"
                 >
                   Send message
                 </BlueButton>

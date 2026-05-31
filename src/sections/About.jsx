@@ -150,6 +150,8 @@ const AboutImage = () => (
       src={aboutImage}
       alt="Blue glass Noderno mark"
       className="block h-auto w-full object-contain"
+        draggable="false"
+  onContextMenu={(e) => e.preventDefault()}
       width="629"
       height="449"
     />

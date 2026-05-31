@@ -118,10 +118,11 @@ const BlueButton = ({ href, children }) => (
 const AvatarItem = ({ avatar, index }) => (
   <li className="group relative transition hover:z-30" style={{ zIndex: avatars.length - index }}>
     <button
-      type="button"
-      className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
-      aria-label={`${avatar.name}, ${avatar.position}`}
-    >
+  type="button"
+  onTouchStart={(e) => e.currentTarget.focus()}
+  className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
+  aria-label={`${avatar.name}, ${avatar.position}`}
+>
       <img
         src={avatar.image}
         alt=""

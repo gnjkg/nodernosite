@@ -96,27 +96,45 @@ const RevealText = ({ children }) => (
   </span>
 )
 
-const Logo = ({ compact = false }) => (
+const Logo = () => (
   <a
-  href="/"
-  draggable="false"
-  onDragStart={(e) => e.preventDefault()}
-  style={{
-    WebkitTapHighlightColor: 'transparent',
-  }}
-  className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 [webkit-tap-highlight-color:transparent]"
->
-  <img
-    src={compact ? logoMark : logoWhite}
-    alt="Noderno"
+    href="/"
     draggable="false"
     onDragStart={(e) => e.preventDefault()}
     style={{
-      WebkitUserDrag: 'none',
+      WebkitTapHighlightColor: 'transparent',
     }}
-   className="pointer-events-none select-none h-auto w-[52px]"
-  />
-</a>
+    className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0"
+    aria-label="Noderno home"
+    onClick={(event) => {
+      event.preventDefault()
+
+      window.history.replaceState(null, '', '/')
+
+      if (window.lenis) {
+        window.lenis.scrollTo(0, {
+          force: true,
+          duration: 0.8,
+        })
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+      }
+    }}
+  >
+    <img
+      src={logoWhite}
+      alt="Noderno"
+      draggable="false"
+      onDragStart={(e) => e.preventDefault()}
+      style={{
+        WebkitUserDrag: 'none',
+      }}
+      className="pointer-events-none h-auto w-[154px] select-none"
+    />
+  </a>
 )
 
 const HeaderButton = ({ href, children, onClick }) => (
@@ -190,7 +208,7 @@ const MobileMenu = ({ isOpen, links, onClose, onNavigate }) => (
     }`}
   >
     <div className="flex h-12 items-center justify-between">
-     <Logo compact />
+     <Logo />
       <button
         type="button"
         className="inline-flex size-12 items-center justify-center rounded-[8px] text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
@@ -277,11 +295,11 @@ const Navbar = () => {
             <div className={containerClass}>
               <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
                       <div className="hidden lg:block">
-            <Logo compact />
+           <Logo />
           </div>
 
           <div className="lg:hidden">
-            <Logo compact />
+            <Logo />
           </div>
 
               <DesktopNav onNavigate={handleNavClick} />

@@ -140,14 +140,14 @@ const Footer = () => {
               <div>
           <a
             href="mailto:support@noderno.dev"
-            className="mt-4 inline-block text-sm text-white underline underline-offset-4"
+            className="mt-4 inline-block text-14 text-white underline underline-offset-4"
           >
             support@noderno.dev
           </a>
 
   <a
   href="tel:+639241386037"
-  className="mt-4 block w-fit pb-1 text-sm text-white underline underline-offset-4"
+  className="mt-4 block w-fit pb-1 text-14 text-white underline underline-offset-4"
 >
   +63 924 138 6037
 </a>

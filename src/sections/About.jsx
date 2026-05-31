@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import buttonBlue from '@/assets/images/Button-Blue.svg'
 import aboutImage from '@/assets/images/about-img.png'
 import ivan from '@/assets/images/ivan.jpg'
@@ -115,27 +115,43 @@ const BlueButton = ({ href, children }) => (
   </a>
 )
 
-const AvatarItem = ({ avatar, index }) => (
-  <li className="group relative transition hover:z-30" style={{ zIndex: avatars.length - index }}>
-    <button
-  type="button"
-  onTouchStart={(e) => e.currentTarget.focus()}
-  className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
-  aria-label={`${avatar.name}, ${avatar.position}`}
->
-      <img
-        src={avatar.image}
-        alt=""
-        className="size-7 rounded-full border-2 border-[#1C324C] object-cover transition duration-300 group-hover:-translate-y-1.5 group-hover:scale-110 min-[390px]:size-8 sm:size-9 sm:border-[2.5px] sm:group-hover:-translate-y-2 md:size-10 lg:size-9 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
-      />
-    </button>
-    <span className="pointer-events-none absolute bottom-full right-0 z-40 mb-2 w-[172px] translate-y-2 rounded-[14px] border border-white/20 bg-[#1C324C]/70 px-3 py-2 text-center text-white opacity-0 shadow-[0_18px_48px_rgba(4,18,38,0.28)] backdrop-blur-[34px] transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 sm:left-1/2 sm:right-auto sm:mb-3 sm:w-max sm:max-w-[240px] sm:-translate-x-1/2 sm:px-3.5 sm:py-2.5">
-      <span className="block text-[10px] font-normal leading-tight sm:text-[11px]">{avatar.name}</span>
-      <span className="mt-1 block text-[9px] font-normal leading-tight text-white/70 sm:text-[10px]">{avatar.position}</span>
-    </span>
-  </li>
-)
+const AvatarItem = ({ avatar, index }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
+  return (
+    <li
+      className="group relative transition hover:z-30"
+      style={{ zIndex: avatars.length - index }}
+    >
+      <button
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+        className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
+        aria-label={`${avatar.name}, ${avatar.position}`}
+        aria-expanded={isOpen}
+      >
+        <img
+          src={avatar.image}
+          alt=""
+          className={`size-7 rounded-full border-2 border-[#1C324C] object-cover transition duration-300 min-[390px]:size-8 sm:size-9 sm:border-[2.5px] md:size-10 lg:size-9 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px] ${
+            isOpen ? '-translate-y-1.5 scale-110 sm:-translate-y-2' : 'group-hover:-translate-y-1.5 group-hover:scale-110 sm:group-hover:-translate-y-2'
+          }`}
+        />
+      </button>
+
+      <span
+        className={`pointer-events-none absolute bottom-full right-0 z-40 mb-2 w-[172px] rounded-[14px] border border-white/20 bg-[#1C324C]/70 px-3 py-2 text-center text-white shadow-[0_18px_48px_rgba(4,18,38,0.28)] backdrop-blur-[34px] transition duration-200 sm:left-1/2 sm:right-auto sm:mb-3 sm:w-max sm:max-w-[240px] sm:-translate-x-1/2 sm:px-3.5 sm:py-2.5 ${
+          isOpen
+            ? 'translate-y-0 opacity-100'
+            : 'translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'
+        }`}
+      >
+        <span className="block text-[10px] font-normal leading-tight sm:text-[11px]">{avatar.name}</span>
+        <span className="mt-1 block text-[9px] font-normal leading-tight text-white/70 sm:text-[10px]">{avatar.position}</span>
+      </span>
+    </li>
+  )
+}
 const AvatarList = () => (
   <ul className="isolate flex items-center -space-x-2 min-[390px]:-space-x-2.5 sm:-space-x-2.5 md:-space-x-3 lg:-space-x-2.5 min-[1180px]:-space-x-[11px] min-[1500px]:-space-x-3 min-[1729px]:-space-x-3.5">
     {avatars.map((avatar, index) => (

@@ -102,7 +102,9 @@ const Logo = ({ compact = false }) => (
     draggable="false"
     onDragStart={(e) => e.preventDefault()}
     style={{ WebkitTapHighlightColor: 'transparent' }}
-    className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0"
+    className={`inline-flex h-12 items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
+  compact ? 'w-[52px] justify-start' : 'w-[154px] justify-start'
+}`}
     aria-label="Noderno home"
     onClick={(event) => {
       event.preventDefault()
@@ -116,14 +118,12 @@ const Logo = ({ compact = false }) => (
     }}
   >
     <img
-      src={compact ? logoMark : logoWhite}
+      src={logoWhite}
       alt="Noderno"
       draggable="false"
       onDragStart={(e) => e.preventDefault()}
       style={{ WebkitUserDrag: 'none' }}
-      className={`pointer-events-none h-auto select-none transition-opacity duration-200 ${
-  compact ? 'w-[52px]' : 'w-[154px]'
-}`}
+    className="pointer-events-none h-auto min-w-[154px] select-none"
     />
   </a>
 )

@@ -38,7 +38,7 @@ const SplitSubmitButton = ({
       className="absolute inset-0 h-full w-full object-cover transition duration-200 group-hover:brightness-[0.98]"
     />
 
-    <span className="absolute left-0 top-0 z-10 flex h-full w-[76%] items-center justify-center pb-[1px] capitalize leading-none">
+   <span className="absolute left-0 top-0 z-10 flex h-full w-[76%] items-center justify-center pb-[1px] text-[14px] capitalize leading-none">
       <span className="relative inline-block after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
         {isSubmitting ? 'Sending...' : children}
       </span>

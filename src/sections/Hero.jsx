@@ -1,7 +1,7 @@
 import Navbar from '@/components/shared/Navbar'
 import heroVideo from '@/assets/videos/hero-video.mp4'
 import buttonShape from '@/assets/images/Button.svg'
-import heroPoster from '@/assets/images/hero-img.jpg'
+import heroPoster from '@/assets/images/hero-image.jpg'
 
 const ArrowUpRight = ({ className = '' }) => (
   <svg

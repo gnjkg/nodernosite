@@ -289,12 +289,12 @@ const handleSubmit = async (event) => {
                   </p>
                 )}
 
-                <SplitSubmitButton
+                <BlueButton
                   isSubmitting={isSubmitting}
                   className="mt-1 w-full text-sm font-normal text-white"
                 >
                   Send message
-                </SplitSubmitButton>
+                </BlueButton>
               </form>
             </div>
           </div>

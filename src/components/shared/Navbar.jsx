@@ -102,10 +102,8 @@ const Logo = ({ compact = false }) => (
     draggable="false"
     onDragStart={(e) => e.preventDefault()}
     style={{ WebkitTapHighlightColor: 'transparent' }}
-    className={`inline-flex h-12 items-center overflow-hidden rounded-[10px] border-2 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
-  compact
-    ? 'w-[72px] justify-center border-white/30 bg-white/[0.23] backdrop-blur-[14px] backdrop-saturate-150'
-    : 'w-[154px] border-transparent bg-transparent'
+    className={`inline-flex h-12 items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
+  compact ? 'w-[52px]' : 'w-[154px]'
 }`}
     aria-label="Noderno home"
     onClick={(event) => {
@@ -287,13 +285,13 @@ const Navbar = () => {
             <div className="pointer-events-none absolute inset-0" />
             <div className={containerClass}>
               <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
-                      <div className="hidden lg:block">
-           <Logo />
-          </div>
+                     <div className="hidden lg:block">
+  <Logo compact={isScrolled} />
+</div>
 
-          <div className="lg:hidden">
-            <Logo />
-          </div>
+<div className="lg:hidden">
+  <Logo compact />
+</div>
 
               <DesktopNav onNavigate={handleNavClick} />
               <HeaderButton href="#contact" onClick={handleNavClick}>

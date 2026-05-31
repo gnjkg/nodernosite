@@ -6,7 +6,8 @@ import IotSection from '@/sections/IotSection'
 import Contact from '@/sections/Contact'
 import ProcessSection from '@/sections/ProcessSection'
 import Services from '@/sections/Services'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/react'
+
 const App = () => {
   return (
     <div className="min-h-screen bg-[#1C324C] text-white">
@@ -20,6 +21,7 @@ const App = () => {
         <Contact />
         <Footer />
       </main>
+      <Analytics />
     </div>
   )
 }

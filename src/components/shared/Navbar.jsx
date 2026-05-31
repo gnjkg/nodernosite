@@ -99,9 +99,17 @@ const RevealText = ({ children }) => (
 const Logo = ({ compact = false, onClick }) => (
   <a
     href="/"
-    className="inline-flex h-12 items-center"
+    className="inline-flex h-12 items-center focus:outline-none focus-visible:outline-none"
     aria-label="Noderno home"
-    onClick={(event) => onClick?.(event, '#home')}
+    onClick={(event) => {
+  if (window.location.pathname === '/') {
+    event.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+}}
   >
     <img src={compact ? logoMark : logoWhite} alt="Noderno" className={compact ? 'h-auto w-[52px]' : 'h-auto w-[154px]'} />
   </a>

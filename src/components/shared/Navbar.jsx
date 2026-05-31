@@ -96,30 +96,12 @@ const RevealText = ({ children }) => (
   </span>
 )
 
-const Logo = ({ compact = false }) => (
+const Logo = ({ compact = false, onClick }) => (
   <a
     href="/"
     className="inline-flex h-12 items-center focus:outline-none focus-visible:outline-none"
     aria-label="Noderno home"
-    oonClick={(event) => {
-  event.preventDefault()
-
-  if (window.location.hash) {
-    window.history.replaceState(null, '', window.location.pathname)
-  }
-
-  if (window.lenis) {
-    window.lenis.scrollTo(0, {
-      force: true,
-      duration: 1,
-    })
-  } else {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
-}}
+    onClick={(event) => onClick?.(event, '#home')}
   >
     <img
       src={compact ? logoMark : logoWhite}
@@ -263,18 +245,17 @@ const Navbar = () => {
   }, [isMenuOpen])
 
   const handleNavClick = (event, href) => {
-    event.preventDefault()
+  event.preventDefault()
 
-    if (!href?.startsWith('#')) {
-      setIsMenuOpen(false)
-      return
-    }
+  setIsMenuOpen(false)
+  document.body.style.overflow = ''
 
-    setIsMenuOpen(false)
-    document.body.style.overflow = ''
-
-    requestAnimationFrame(() => scrollToSection(href))
+  if (href === '#home') {
+    window.history.replaceState(null, '', '/')
   }
+
+  requestAnimationFrame(() => scrollToSection(href))
+}
 
   const shellClass = isScrolled ? 'fixed inset-x-0 top-3 z-[60] px-[12px]' : 'relative z-[60] w-full'
   const containerClass = isScrolled ? stickyContainerClass : topContainerClass

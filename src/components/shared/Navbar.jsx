@@ -239,13 +239,20 @@ const Navbar = () => {
   )
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 18)
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 18)
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    if (window.scrollY < 120 && window.location.hash) {
+      window.history.replaceState(null, '', '/')
+    }
+  }
 
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  handleScroll()
+
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  return () => window.removeEventListener('scroll', handleScroll)
+}, [])
 
   useEffect(() => {
     const handleKeyDown = (event) => {

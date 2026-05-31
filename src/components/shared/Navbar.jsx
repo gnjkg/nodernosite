@@ -98,38 +98,27 @@ const RevealText = ({ children }) => (
 
 const Logo = ({ compact = false }) => (
   <a
-    href="/"
+  href="/"
+  draggable="false"
+  onDragStart={(e) => e.preventDefault()}
+  style={{
+    WebkitTapHighlightColor: 'transparent',
+  }}
+  className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 [webkit-tap-highlight-color:transparent]"
+>
+  <img
+    src={compact ? logoMark : logoWhite}
+    alt="Noderno"
+    draggable="false"
+    onDragStart={(e) => e.preventDefault()}
     style={{
-  WebkitTapHighlightColor: 'transparent',
-}}
-   className="inline-flex h-12 w-[154px] items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 [webkit-tap-highlight-color:transparent]"
-    aria-label="Noderno home"
-    onClick={(event) => {
-      event.preventDefault()
-
-      window.history.replaceState(null, '', '/')
-
-      if (window.lenis) {
-        window.lenis.scrollTo(0, {
-          force: true,
-          duration: 1,
-        })
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        })
-      }
+      WebkitUserDrag: 'none',
     }}
-  >
-   <img
-  src={compact ? logoMark : logoWhite}
-  alt="Noderno"
-  className={`pointer-events-none select-none h-auto w-[154px] origin-left transition-transform duration-300 ${
-    compact ? 'scale-[0.34]' : 'scale-100'
-  }`}
-/>
-  </a>
+    className={`pointer-events-none select-none h-auto w-[154px] origin-left transition-transform duration-300 ${
+      compact ? 'scale-[0.34]' : 'scale-100'
+    }`}
+  />
+</a>
 )
 
 const HeaderButton = ({ href, children, onClick }) => (

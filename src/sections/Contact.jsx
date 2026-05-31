@@ -291,7 +291,7 @@ const handleSubmit = async (event) => {
 
                 <SplitSubmitButton
                   isSubmitting={isSubmitting}
-                  className="mt-1 w-full text-sm font-medium text-white"
+                  className="mt-1 w-full text-sm font-normal text-white"
                 >
                   Send message
                 </SplitSubmitButton>

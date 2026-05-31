@@ -191,7 +191,7 @@ const MobileMenu = ({ isOpen, links, onClose, onNavigate }) => (
     }`}
   >
     <div className="flex h-12 items-center justify-between">
-      <Logo compact onClick={onNavigate} />
+     <Logo compact />
       <button
         type="button"
         className="inline-flex size-12 items-center justify-center rounded-[8px] text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
@@ -278,12 +278,13 @@ const Navbar = () => {
             <div className="pointer-events-none absolute inset-0" />
             <div className={containerClass}>
               <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
-              <div className="hidden lg:block">
-                <Logo compact={isScrolled} onClick={handleNavClick} />
-              </div>
-              <div className="lg:hidden">
-                <Logo compact onClick={handleNavClick} />
-              </div>
+             <div className="hidden lg:block">
+              <Logo compact={isScrolled} />
+            </div>
+
+            <div className="lg:hidden">
+              <Logo compact />
+            </div>
 
               <DesktopNav onNavigate={handleNavClick} />
               <HeaderButton href="#contact" onClick={handleNavClick}>

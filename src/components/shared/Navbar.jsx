@@ -102,11 +102,11 @@ const Logo = ({ compact = false }) => (
     draggable="false"
     onDragStart={(e) => e.preventDefault()}
     style={{ WebkitTapHighlightColor: 'transparent' }}
-    className={`inline-flex h-12 items-center overflow-hidden rounded-[10px] border-2 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
-  compact
-    ? 'w-[72px] justify-center border-white/30 bg-white/[0.23] backdrop-blur-[14px] backdrop-saturate-150'
-    : 'w-[154px] border-transparent bg-transparent'
-}`}
+    className={`inline-flex h-12 items-center overflow-hidden rounded-[10px] outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
+      compact
+        ? 'w-[72px] justify-center border-2 border-white/30 bg-white/[0.23] backdrop-blur-[14px] backdrop-saturate-150'
+        : 'w-[154px] justify-start border-2 border-transparent bg-transparent'
+    }`}
     aria-label="Noderno home"
     onClick={(event) => {
       event.preventDefault()
@@ -125,7 +125,9 @@ const Logo = ({ compact = false }) => (
       draggable="false"
       onDragStart={(e) => e.preventDefault()}
       style={{ WebkitUserDrag: 'none' }}
-      className={compact ? 'pointer-events-none h-auto w-[52px] select-none' : 'pointer-events-none h-auto w-[154px] select-none'}
+      className={`pointer-events-none h-auto select-none ${
+        compact ? 'w-[52px]' : 'w-[154px]'
+      }`}
     />
   </a>
 )
@@ -201,7 +203,7 @@ const MobileMenu = ({ isOpen, links, onClose, onNavigate }) => (
     }`}
   >
     <div className="flex h-12 items-center justify-between">
-     <Logo compact />
+     <Logo compact={isScrolled} />
       <button
         type="button"
         className="inline-flex size-12 items-center justify-center rounded-[8px] text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"

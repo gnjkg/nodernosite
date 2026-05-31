@@ -99,7 +99,7 @@ const RevealText = ({ children }) => (
 const Logo = ({ compact = false }) => (
   <a
     href="/"
-    className="inline-flex h-12 w-[154px] items-center overflow-hidden focus:outline-none focus-visible:outline-none"
+    className="inline-flex h-12 w-[154px] items-center overflow-hidden focus:outline-none focus-visible:outline-none [webkit-tap-highlight-color:transparent]"
     aria-label="Noderno home"
     onClick={(event) => {
       event.preventDefault()
@@ -119,10 +119,10 @@ const Logo = ({ compact = false }) => (
       }
     }}
   >
-    <img
+   <img
   src={compact ? logoMark : logoWhite}
   alt="Noderno"
-  className={`h-auto w-[154px] origin-left transition-transform duration-300 ${
+  className={`pointer-events-none select-none h-auto w-[154px] origin-left transition-transform duration-300 ${
     compact ? 'scale-[0.34]' : 'scale-100'
   }`}
 />

@@ -11,7 +11,7 @@ const footerLinks = [
 
 const socialLinks = [
   { label: 'FACEBOOK', href: 'https://www.facebook.com/profile.php?id=61562167407409' },
-  { label: 'INSTAGRAM', href: 'https://www.instagram.com/noderno.ph' },
+  { label: 'INSTAGRAM', href: 'https://www.instagram.com/noderno.dev'},
 ]
 
 const getNavbarClearance = () => (window.matchMedia('(min-width: 1024px)').matches ? 80 : 88)

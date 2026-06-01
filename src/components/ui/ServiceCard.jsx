@@ -33,7 +33,7 @@ const ServiceCard = ({ service }) => {
           <p className="mt-[14px] text-[14px] font-normal leading-[1.45] text-white sm:text-[14px] min-[1440px]:!text-[14px]">{description}</p>
         </div>
 
-        <div className="mt-3.5 flex max-h-20 flex-wrap gap-2 overflow-hidden opacity-100 transition-all duration-500 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:opacity-100">
+        <div className="mt-4 flex max-h-20 flex-wrap gap-2 overflow-hidden opacity-100 transition-all duration-500 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:opacity-100">
           {tags.map((tag) => (
             <span key={tag} className="rounded-full bg-[#1C324C]/40 px-3 py-2 text-[12px] font-normal leading-none text-white/90 backdrop-blur-md">
               {tag}

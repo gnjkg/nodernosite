@@ -111,7 +111,7 @@ const FooterLink = ({ href, children }) => {
       onClick={(event) => handleFooterNavigate(event, href)}
       className="group inline-flex items-center gap-4 text-[14x] font-normal leading-none text-white focus:outline-none sm:text-[14px]"
     >
-      <span className="relative inline-block pb-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
+      <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
         {children}
       </span>
       <ArrowUpRight className="size-[17px] shrink-0 transition-transform duration-300 group-hover:-rotate-[-45deg]" />
@@ -155,7 +155,7 @@ const Footer = () => {
             </address>
           </div>
 
-          <nav aria-label="Footer navigation" className="lg:pt-1">
+          <nav aria-label="Footer navigation" className="">
             <ul className="space-y-6 sm:space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.label}>

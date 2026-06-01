@@ -40,7 +40,7 @@ const services = [
       'UI/UX design, branding, logos, websites, graphics, and visual assets crafted to create clean, modern, and user-friendly experiences.',
     image: designImage,
     icon: designIcon,
-    tags: ['UI/UX Design', 'Brand Identity', 'Wirefrimes'],
+    tags: ['UI/UX Design', 'Brand Identity', 'Logo Creation']
   },
 ]
 

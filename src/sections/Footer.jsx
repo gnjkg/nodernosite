@@ -165,7 +165,7 @@ const Footer = () => {
             </ul>
           </nav>
 
-          <nav aria-label="Social links" className="lg:pt-1">
+          <nav aria-label="Social links" className="">
             <ul className="space-y-6 sm:space-y-3 lg:text-right">
               {socialLinks.map((link) => (
                 <li key={link.label}>

@@ -28,12 +28,12 @@ const ServiceCard = ({ service }) => {
           ) : null}
         </div>
 
-        <div className="mt-16 max-w-[255px] sm:mt-[66px] sm:max-w-[280px] lg:mt-[76px] lg:max-w-[235px] min-[1440px]:mt-[79px] min-[1440px]:min-h-[132px] min-[1440px]:!max-w-[400px]">
+        <div className="mt-12 max-w-[255px] sm:mt-[55px] sm:max-w-[280px] lg:mt-[70px] lg:max-w-[235px] min-[1440px]:mt-[89px] min-[1440px]:min-h-[132px] min-[1440px]:!max-w-[400px]">
           <h3 className="text-[16px] font-normal leading-tight sm:text-[16px] min-[1440px]:!text-[16px]">{title}</h3>
           <p className="mt-[14px] text-[14px] font-normal leading-[1.45] text-white sm:text-[14px] min-[1440px]:!text-[14px]">{description}</p>
         </div>
 
-        <div className="mt-4 flex max-h-20 flex-wrap gap-2 overflow-hidden opacity-100 transition-all duration-500 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:opacity-100">
+        <div className="mt-3 flex max-h-20 flex-wrap gap-2 overflow-hidden opacity-100 transition-all duration-500 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:opacity-100">
           {tags.map((tag) => (
             <span key={tag} className="rounded-full bg-[#1C324C]/40 px-3 py-2 text-[12px] font-normal leading-none text-white/90 backdrop-blur-md">
               {tag}

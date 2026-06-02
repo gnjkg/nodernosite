@@ -77,7 +77,7 @@ const SplitButton = ({ href, children, className = 'inline-block', widthClassNam
   <a
     href={href}
     onClick={(event) => handleHeroNavigate(event, href)}
-    className={`group relative aspect-[253/49] max-w-full left-1 text-[14px] font-normal text-[#1d71c6] drop-shadow-[0_24px_50px_rgba(7,48,101,0.16)] transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${widthClassName} ${className}`}
+    className={`group relative aspect-[253/49] max-w-full left-2 text-[14px] font-normal text-[#1d71c6] drop-shadow-[0_24px_50px_rgba(7,48,101,0.16)] transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 ${widthClassName} ${className}`}
   >
     <img
       src={buttonShape}

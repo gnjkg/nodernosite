@@ -184,8 +184,8 @@ const IotSection = () => {
               </div>
             </div>
 
-            <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-[22px] sm:min-h-[300px] lg:min-h-[282px] min-[1440px]:h-[306px] min-[1440px]:rounded-[26px]">
-              <img src={iotPrototype} alt="Flood monitoring sensor prototype near water" className="h-auto max-h-[280px] w-full object-contain object-center sm:max-h-[340px] lg:max-h-full lg:object-right" />
+            <div className="relative flex min-h-[220px] w-full items-center justify-center overflow-hidden rounded-[22px] sm:min-h-[300px] md:max-lg:min-h-0 lg:min-h-[282px] min-[1440px]:h-[306px] min-[1440px]:rounded-[26px]">
+              <img src={iotPrototype} alt="Flood monitoring sensor prototype near water" className="h-auto max-h-[280px] w-full object-contain object-center sm:max-h-[340px] md:max-lg:max-h-none lg:max-h-full lg:object-right" />
             </div>
           </div>
 

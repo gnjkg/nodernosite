@@ -118,15 +118,15 @@ const BlueButton = ({ href, children }) => (
 const AvatarItem = ({ avatar, index }) => (
   <li className="group relative transition hover:z-30" style={{ zIndex: avatars.length - index }}>
     <button
-      type="button"
-      onTouchStart={(e) => e.currentTarget.focus()}
-      className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 min-[1180px]:size-[38px] min-[1440px]:size-[42px] min-[1729px]:size-[46px]"
-      aria-label={`${avatar.name}, ${avatar.position}`}
-    >
+  type="button"
+  onTouchStart={(e) => e.currentTarget.focus()}
+  className="block size-7 overflow-visible rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 min-[390px]:size-8 sm:size-9 md:size-10 lg:size-9.5 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
+  aria-label={`${avatar.name}, ${avatar.position}`}
+>
       <img
         src={avatar.image}
         alt=""
-        className="size-7 rounded-full border-2 border-[#1C324C] object-cover transition duration-300 group-hover:-translate-y-1.5 group-hover:scale-110 min-[390px]:size-8 sm:size-9 sm:border-[2.5px] sm:group-hover:-translate-y-2 md:size-10 min-[1180px]:size-[38px] min-[1440px]:size-[42px] min-[1729px]:size-[46px]"
+        className="size-7 rounded-full border-2 border-[#1C324C] object-cover transition duration-300 group-hover:-translate-y-1.5 group-hover:scale-110 min-[390px]:size-8 sm:size-9 sm:border-[2.5px] sm:group-hover:-translate-y-2 md:size-10 lg:size-9 min-[1180px]:size-[38px] min-[1500px]:size-[42px] min-[1729px]:size-[46px]"
       />
     </button>
     <span className="pointer-events-none absolute bottom-full right-0 z-40 mb-2 w-[172px] translate-y-2 rounded-[14px] border border-white/20 bg-[#1C324C]/70 px-3 py-2 text-center text-white opacity-0 shadow-[0_18px_48px_rgba(4,18,38,0.28)] backdrop-blur-[34px] transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 sm:left-1/2 sm:right-auto sm:mb-3 sm:w-max sm:max-w-[240px] sm:-translate-x-1/2 sm:px-3.5 sm:py-2.5">
@@ -137,7 +137,7 @@ const AvatarItem = ({ avatar, index }) => (
 )
 
 const AvatarList = () => (
-  <ul className="isolate flex items-center -space-x-2 min-[390px]:-space-x-2.5 sm:-space-x-2.5 md:-space-x-3 min-[1180px]:-space-x-[11px] min-[1440px]:-space-x-3 min-[1729px]:-space-x-3.5">
+  <ul className="isolate flex items-center -space-x-2 min-[390px]:-space-x-2.5 sm:-space-x-2.5 md:-space-x-3 lg:-space-x-2.5 min-[1180px]:-space-x-[11px] min-[1500px]:-space-x-3 min-[1729px]:-space-x-3.5">
     {avatars.map((avatar, index) => (
       <AvatarItem key={avatar.name} avatar={avatar} index={index} />
     ))}
@@ -145,17 +145,17 @@ const AvatarList = () => (
 )
 
 const AboutImage = () => (
-  <div className="relative order-2 mr-auto w-full max-w-[560px] min-w-0 overflow-visible sm:max-w-[620px] min-[1180px]:order-1 min-[1180px]:max-w-full min-[1440px]:max-w-[629px]">
+  <div className="relative order-2 mr-auto w-full max-w-[629px] min-w-0 overflow-visible lg:order-1 lg:max-w-full min-[1440px]:max-w-[629px]">
     <img
       src={aboutImage}
       alt="Blue glass Noderno mark"
       className="block h-auto w-full object-contain"
-      draggable="false"
-      onContextMenu={(e) => e.preventDefault()}
+        draggable="false"
+  onContextMenu={(e) => e.preventDefault()}
       width="629"
       height="449"
     />
-    <div className="absolute bottom-[1.6%] right-[4.5%] min-[390px]:right-[3.2%] sm:bottom-[2.3%] sm:right-[5.2%] md:right-[5.7%] min-[1180px]:bottom-[2.2%] min-[1180px]:right-[5%] min-[1440px]:right-[5.7%] min-[1729px]:bottom-[1.8%] min-[1729px]:right-[6.2%]">
+    <div className="absolute bottom-[1.6%] right-[4.5%] min-[390px]:right-[3.2%] sm:bottom-[2.3%] sm:right-[5.2%] md:right-[5.7%] lg:bottom-[2.2%] lg:right-[6.8%] min-[1180px]:right-[5%] min-[1500px]:bottom-[2.1%] min-[1500px]:right-[5.7%] min-[1729px]:bottom-[1.8%] min-[1729px]:right-[6.2%]">
       <AvatarList />
     </div>
   </div>
@@ -219,7 +219,7 @@ const HighlightHeading = ({ children, sectionRef }) => {
   return (
     <h2
       aria-label={children}
-      className="mt-7 text-[24px] font-normal leading-[1.22] tracking-normal sm:mt-8 sm:text-[28px] md:text-[34px] lg:text-[40px] min-[1180px]:text-[44px] min-[1440px]:text-[50px]"
+      className="mt-8 text-[24px] font-normal leading-[1.22] tracking-normal sm:text-[28px] lg:text-[44px] min-[1440px]:text-[50px]"
     >
       <span
         ref={textRef}
@@ -242,14 +242,14 @@ const About = () => {
       id="about"
       className="min-h-[calc(100svh+max(720px,92svh))] scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-0"
     >
-      <div className="sticky top-0 mx-auto grid min-h-[calc(100svh-25px)] w-full max-w-[1704px] items-center gap-10 bg-[#1C324C] px-5 py-14 sm:gap-12 sm:px-9 sm:py-16 lg:px-16 lg:py-24 min-[1180px]:grid-cols-[minmax(0,0.98fr)_minmax(0,1fr)] min-[1180px]:gap-14 xl:gap-[72px] xl:px-24 xl:py-[112px] min-[1440px]:gap-[84px] min-[1440px]:px-[200px] min-[1440px]:py-[118px]">
+      <div className="sticky top-0 mx-auto grid min-h-[calc(100svh-25px)] w-full max-w-[1704px] items-center gap-12 bg-[#1C324C] px-5 py-16 sm:px-9 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1fr)] lg:gap-10 lg:px-16 lg:py-24 min-[1180px]:gap-14 xl:gap-[72px] xl:px-[200px] xl:py-[118px] min-[1440px]:gap-[84px]">
         <AboutImage />
 
-        <div className="order-1 min-w-0 max-w-[720px] text-white min-[1180px]:order-2 min-[1180px]:max-w-[620px]">
+        <div className="order-1 min-w-0 max-w-[620px] text-white lg:order-2">
           <p className="text-[12px] font-normal uppercase tracking-[0.34em] text-white/90">About</p>
           <HighlightHeading sectionRef={sectionRef}>{aboutHeadline}</HighlightHeading>
 
-          <div className="mt-8 sm:mt-10 min-[1180px]:mt-12">
+          <div className="mt-9 sm:mt-12">
             <BlueButton href="#contact">Work With Us</BlueButton>
           </div>
         </div>

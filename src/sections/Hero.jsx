@@ -199,6 +199,13 @@ const Hero = () => {
             will-change: border-radius, margin, min-height, width;
           }
 
+          .hero-video::-webkit-media-controls,
+          .hero-video::-webkit-media-controls-panel,
+          .hero-video::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
+          }
+
           @media (prefers-reduced-motion: reduce) {
             .hero-navbar-reveal,
             .hero-cta-reveal,
@@ -215,21 +222,19 @@ const Hero = () => {
   poster={heroPoster}
   autoPlay
   muted
+  defaultMuted
   loop
   playsInline
   preload="metadata"
   disablePictureInPicture
   controls={false}
   controlsList="nodownload nofullscreen noremoteplayback"
-  className="pointer-events-none absolute inset-0 hidden size-full object-cover object-[52%_50%] sm:block lg:object-center"
-/>
-
-<img
-  src={heroPoster}
-  alt=""
   aria-hidden="true"
-  className="pointer-events-none absolute inset-0 size-full object-cover object-[52%_50%] sm:hidden"
-/>
+  onCanPlay={(event) => {
+    event.currentTarget.muted = true
+    event.currentTarget.play().catch(() => {})
+  }}
+  className="hero-video pointer-events-none absolute inset-0 block size-full object-cover object-[67%_76%] md:object-[52%_50%] lg:object-center"/>
         <div className="absolute inset-0 bg-[#0b3f85]/[0.02]" aria-hidden="true" />
 
         <div className="hero-navbar-reveal relative z-20">

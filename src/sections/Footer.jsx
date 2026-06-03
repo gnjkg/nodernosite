@@ -109,9 +109,9 @@ const FooterLink = ({ href, children }) => {
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noreferrer' : undefined}
       onClick={(event) => handleFooterNavigate(event, href)}
-      className="group inline-flex items-center gap-4 text-[14x] font-normal leading-none text-white focus:outline-none sm:text-[14px]"
+      className="group inline-flex items-center gap-4 text-[14px] font-normal leading-none text-white focus:outline-none"
     >
-      <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
+      <span className="relative inline-block after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
         {children}
       </span>
       <ArrowUpRight className="size-[17px] shrink-0 transition-transform duration-300 group-hover:-rotate-[-45deg]" />

@@ -69,7 +69,7 @@ const handleSubmit = async (event) => {
   formData.set('_subject', `New ${selectedSubject} message from Noderno website`)
 
   try {
-    const response = await fetch('https://formspree.io/f/xzdwwnoe', {
+    const response = await fetch('https://formspree.io/f/meewewnr', {
       method: 'POST',
       body: formData,
       headers: {
@@ -84,7 +84,7 @@ const handleSubmit = async (event) => {
     form.reset()
     setShowSuccessModal(true)
   } catch (error) {
-    setErrorMessage('Something went wrong. Please try again or email us directly at support@noderno.dev.')
+    setErrorMessage('Something went wrong. Please try again or email us directly at info@noderno.dev.')
   } finally {
     setIsSubmitting(false)
   }

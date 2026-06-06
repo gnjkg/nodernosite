@@ -139,10 +139,10 @@ const Footer = () => {
             <address className="mt-8 not-italic sm:mt-10">
               <div>
           <a
-            href="mailto:support@noderno.dev"
+            href="mailto:info@noderno.dev"
             className="mt-4 text-[16px] inline-block text-sm text-white underline underline-offset-4"
           >
-            support@noderno.dev
+            info@noderno.dev
           </a>
 
   <a

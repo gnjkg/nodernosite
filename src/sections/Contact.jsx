@@ -69,7 +69,7 @@ const handleSubmit = async (event) => {
   formData.set('_subject', `New ${selectedSubject} message from Noderno website`)
 
   try {
-    const response = await fetch('https://formspree.io/f/meewewnr', {
+    const response = await fetch('https://formspree.io/f/xbdedeev', {
       method: 'POST',
       body: formData,
       headers: {

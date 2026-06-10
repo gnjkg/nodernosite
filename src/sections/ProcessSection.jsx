@@ -25,7 +25,7 @@ const processSteps = [
 
 const stepPositions = [
   'lg:left-[4.5%] lg:top-[3.5%]',
-  'lg:left-[56%] lg:top-[28%]',
+  'lg:left-[56%] lg:top-[27.5%]',
   'lg:left-[4.5%] lg:top-[53.5%]',
   'lg:left-[56%] lg:top-[78%]',
 ]

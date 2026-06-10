@@ -87,3 +87,12 @@ select {
     box-shadow: 0 20px 60px rgba(124, 58, 237, 0.18);
   }
 }
+
+.hero-video::-webkit-media-controls {
+  display: none !important;
+}
+
+.hero-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}

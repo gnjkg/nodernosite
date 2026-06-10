@@ -1,28 +1,23 @@
 import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import buttonShape from '@/assets/images/Button.svg'
-import logoMark from '@/assets/logos/logo-mark.svg'
 import logoWhite from '@/assets/logos/logo-white.svg'
 
-const navItems = ['Services', 'IoT', 'Process', 'About',]
+const navItems = ['Services', 'IoT', 'Process', 'About']
+const mobileOffsetSections = new Set(['#iot', '#process', '#contact'])
 
 const stickyContainerClass =
   'mx-auto w-full max-w-[1704px] px-5 sm:px-9 lg:px-16 xl:px-[200px]'
 const topContainerClass = 'mx-auto w-full max-w-[1304px]'
 
-const getNavbarClearance = () => (window.matchMedia('(min-width: 1024px)').matches ? 80 : 88)
+const getMobileSectionScrollTop = (target) => {
+  const anchor = target.querySelector('[data-mobile-nav-anchor]')
 
-const getSectionScrollTop = (target, { center = false } = {}) => {
-  const navbarClearance = getNavbarClearance()
-  const viewportHeight = window.innerHeight
-  const availableHeight = Math.max(viewportHeight - navbarClearance, 1)
-  const targetTop = target.getBoundingClientRect().top + window.scrollY
-  const targetHeight = target.offsetHeight
+  if (!anchor) return target.getBoundingClientRect().top + window.scrollY
 
-  if (center) {
-    return targetTop - navbarClearance - (availableHeight - targetHeight) / 2
-  }
+  const servicesLabelTop = window.matchMedia('(min-width: 640px)').matches ? 84 : 68
 
-  return targetTop - navbarClearance
+  return anchor.getBoundingClientRect().top + window.scrollY - servicesLabelTop
 }
 
 const scrollToSection = (href) => {
@@ -32,9 +27,12 @@ const scrollToSection = (href) => {
 
   if (!target) return false
 
-  const baseTop = Math.max(0, getSectionScrollTop(target, { center: href === '#contact' }))
   const rawTop = target.getBoundingClientRect().top + window.scrollY
-  const top = href === '#contact' ? baseTop : Math.max(0, rawTop)
+  const shouldApplyMobileClearance =
+    !window.matchMedia('(min-width: 1024px)').matches && mobileOffsetSections.has(href)
+  const top = shouldApplyMobileClearance
+    ? Math.max(0, getMobileSectionScrollTop(target))
+    : Math.max(0, rawTop)
 
   if (window.lenis) {
     window.lenis.scrollTo(top, {
@@ -103,8 +101,8 @@ const Logo = ({ compact = false }) => (
     onDragStart={(e) => e.preventDefault()}
     style={{ WebkitTapHighlightColor: 'transparent' }}
     className={`inline-flex h-12 items-center overflow-hidden outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 active:outline-none active:ring-0 ${
-  compact ? 'w-[52px] justify-start' : 'w-[154px] justify-start'
-}`}
+      compact ? 'w-[52px] justify-start' : 'w-[154px] justify-start'
+    }`}
     aria-label="Noderno home"
     onClick={(event) => {
       event.preventDefault()
@@ -123,7 +121,7 @@ const Logo = ({ compact = false }) => (
       draggable="false"
       onDragStart={(e) => e.preventDefault()}
       style={{ WebkitUserDrag: 'none' }}
-    className="pointer-events-none h-auto min-w-[154px] select-none"
+      className="pointer-events-none h-auto min-w-[154px] select-none"
     />
   </a>
 )
@@ -165,10 +163,10 @@ const DesktopNav = ({ onNavigate }) => (
         href={`#${item.toLowerCase()}`}
         className="group leading-none focus:outline-none"
         onClick={(event) => onNavigate(event, event.currentTarget.getAttribute('href'))}
-      ><span className="relative inline-block after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
-         <RevealText>{item}</RevealText>
-      </span>
-       
+      >
+        <span className="relative inline-block after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100 group-focus-visible:after:scale-x-100 motion-reduce:after:transition-none">
+          <RevealText>{item}</RevealText>
+        </span>
       </a>
     ))}
   </nav>
@@ -177,13 +175,13 @@ const DesktopNav = ({ onNavigate }) => (
 const MobileMenuButton = ({ isOpen, onClick }) => (
   <button
     type="button"
-    className="inline-flex size-10 items-center justify-center justify-self-end rounded-[8px] text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 lg:hidden"
-    aria-label="Open navigation menu"
+    className="group inline-flex size-10 items-center justify-end justify-self-end rounded-[8px] text-white transition duration-300 ease-out hover:bg-white/10 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 motion-reduce:transition-none lg:hidden"
+    aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
     aria-controls="mobile-navigation"
     aria-expanded={isOpen}
     onClick={onClick}
   >
-    <MenuIcon className="h-6 w-8" />
+    <MenuIcon className="h-6 w-8 transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transition-none" />
   </button>
 )
 
@@ -194,15 +192,25 @@ const MobileMenu = ({ isOpen, links, onClose, onNavigate }) => (
     aria-modal="true"
     aria-hidden={!isOpen}
     inert={isOpen ? undefined : ''}
-    className={`fixed inset-0 z-[80] overflow-y-auto border-0 border-[#058BFF] bg-[#1C324C] px-7 py-7 text-white shadow-[0_30px_90px_rgba(0,0,0,0.25)] transition duration-300 ease-out lg:hidden ${
-      isOpen ? 'pointer-events-auto translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-3 scale-[0.98] opacity-0'
+    className={`fixed inset-0 z-[999] flex min-h-dvh flex-col overflow-y-auto overscroll-contain border-0 border-[#058BFF] bg-[#1C324C] px-7 py-7 text-white shadow-[0_30px_90px_rgba(0,0,0,0.25)] transition-[opacity,transform] duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none lg:hidden ${
+      isOpen
+        ? 'pointer-events-auto translate-y-0 scale-100 opacity-100'
+        : 'pointer-events-none translate-y-2 scale-[0.992] opacity-0'
     }`}
   >
     <div className="flex h-12 items-center justify-between">
-     <Logo compact />
+      <div
+        className={`transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+          isOpen ? 'translate-y-0 opacity-100 delay-75' : '-translate-y-2 opacity-0 delay-0'
+        }`}
+      >
+        <Logo compact />
+      </div>
       <button
         type="button"
-        className="inline-flex size-12 items-center justify-center rounded-[8px] text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        className={`inline-flex size-12 items-center justify-center rounded-[8px] text-white transition-[opacity,transform,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/10 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 motion-reduce:transition-none ${
+          isOpen ? 'rotate-0 scale-100 opacity-100 delay-100' : '-rotate-45 scale-90 opacity-0 delay-0'
+        }`}
         aria-label="Close navigation menu"
         onClick={onClose}
       >
@@ -210,20 +218,36 @@ const MobileMenu = ({ isOpen, links, onClose, onNavigate }) => (
       </button>
     </div>
 
-    <nav aria-label="Mobile navigation" className="h-full flex flex-col items-center justify-center gap-8 pb-10">
-      {links.map((link) => (
+    <nav aria-label="Mobile navigation" className="flex flex-1 flex-col items-center justify-center gap-9 py-14 sm:gap-10">
+      {links.map((link, index) => (
         <a
           key={link.label}
           href={link.href}
-          className="group inline-flex items-center gap-4 text-[20px] font-normal uppercase leading-none tracking-normal"
+          className={`group inline-flex items-center gap-4 text-[20px] font-normal uppercase leading-none tracking-normal transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+            isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
+          style={{ transitionDelay: isOpen ? `${120 + index * 55}ms` : '0ms' }}
           onClick={(event) => onNavigate(event, link.href)}
         >
           <RevealText>{link.label}</RevealText>
-          <ArrowUpRight className="size-6 transition-transform duration-300 ease-out group-hover:rotate-45" />
+          <ArrowUpRight className="size-6 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:rotate-45 motion-reduce:transition-none" />
         </a>
       ))}
     </nav>
   </div>
+)
+
+const MobileNavbar = ({ isScrolled, isMenuOpen, onOpen }) => (
+  <header
+    className={`hero-navbar-reveal fixed inset-x-0 z-[60] px-8 transition-[top] duration-300 ease-out sm:px-12 lg:hidden ${
+      isScrolled ? 'top-3' : 'top-9'
+    }`}
+  >
+    <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4">
+      <Logo compact />
+      <MobileMenuButton isOpen={isMenuOpen} onClick={onOpen} />
+    </div>
+  </header>
 )
 
 const Navbar = () => {
@@ -239,47 +263,59 @@ const Navbar = () => {
   )
 
   useEffect(() => {
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 18)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 18)
 
-    if (window.scrollY < 120 && window.location.hash) {
-      window.history.replaceState(null, '', '/')
+      if (window.scrollY < 120 && window.location.hash) {
+        window.history.replaceState(null, '', '/')
+      }
     }
-  }
 
-  handleScroll()
+    handleScroll()
 
-  window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
-  return () => window.removeEventListener('scroll', handleScroll)
-}, [])
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
+    if (!isMenuOpen) return undefined
+
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') setIsMenuOpen(false)
     }
 
-    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.lenis?.stop()
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      document.body.style.overflow = ''
+      document.body.style.overflow = previousOverflow
+      window.lenis?.start()
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isMenuOpen])
 
   const handleNavClick = (event, href) => {
-  event.preventDefault()
+    event.preventDefault()
 
-  setIsMenuOpen(false)
-  document.body.style.overflow = ''
+    const wasMenuOpen = isMenuOpen
+    setIsMenuOpen(false)
 
-  if (href === '#home') {
-    window.history.replaceState(null, '', '/')
+    if (href === '#home') {
+      window.history.replaceState(null, '', '/')
+    }
+
+    requestAnimationFrame(() => {
+      if (wasMenuOpen) {
+        requestAnimationFrame(() => scrollToSection(href))
+        return
+      }
+
+      scrollToSection(href)
+    })
   }
-
-  requestAnimationFrame(() => scrollToSection(href))
-}
 
   const shellClass = isScrolled ? 'fixed inset-x-0 top-3 z-[60] px-[12px]' : 'relative z-[60] w-full'
   const containerClass = isScrolled ? stickyContainerClass : topContainerClass
@@ -287,36 +323,40 @@ const Navbar = () => {
   return (
     <>
       <div className="relative z-[60] h-12">
-        <header className={shellClass}>
+        <header className={`${shellClass} hidden lg:block`}>
           <div className="relative">
             <div className="pointer-events-none absolute inset-0" />
             <div className={containerClass}>
-              <div className="grid h-12 w-full grid-cols-[1fr_auto] items-center gap-4 transition-colors duration-300 ease-out lg:grid-cols-[1fr_auto_1fr]">
-                     <div className="hidden lg:block">
-  <Logo compact={isScrolled} />
-</div>
-
-<div className="lg:hidden">
-  <Logo compact />
-</div>
-
-              <DesktopNav onNavigate={handleNavClick} />
-              <HeaderButton href="#contact" onClick={handleNavClick}>
-                Discuss Your Workflow
-              </HeaderButton>
-              <MobileMenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(true)} />
-            </div>
+              <div className="grid h-12 w-full grid-cols-[1fr_auto_1fr] items-center gap-4 transition-colors duration-300 ease-out">
+                <div>
+                  <Logo compact={isScrolled} />
+                </div>
+                <DesktopNav onNavigate={handleNavClick} />
+                <HeaderButton href="#contact" onClick={handleNavClick}>
+                  Discuss Your Workflow
+                </HeaderButton>
+              </div>
             </div>
           </div>
         </header>
       </div>
 
-      <MobileMenu
-        isOpen={isMenuOpen}
-        links={menuLinks}
-        onClose={() => setIsMenuOpen(false)}
-        onNavigate={handleNavClick}
-      />
+      {createPortal(
+        <>
+          <MobileNavbar
+            isScrolled={isScrolled}
+            isMenuOpen={isMenuOpen}
+            onOpen={() => setIsMenuOpen(true)}
+          />
+          <MobileMenu
+            isOpen={isMenuOpen}
+            links={menuLinks}
+            onClose={() => setIsMenuOpen(false)}
+            onNavigate={handleNavClick}
+          />
+        </>,
+        document.body,
+      )}
     </>
   )
 }

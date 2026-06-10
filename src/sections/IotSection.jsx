@@ -131,7 +131,7 @@ const IotSection = () => {
       <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1fr] lg:items-end lg:gap-6 min-[1440px]:gap-8">
           <div>
-            <p className="text-[12px] font-normal uppercase tracking-[0.32em] text-white/90">IoT and Automation</p>
+            <p data-mobile-nav-anchor className="text-[12px] font-normal uppercase tracking-[0.32em] text-white/90">IoT and Automation</p>
             <h2 className="mt-6 max-w-[760px] text-[32px] font-normal leading-[1.13] tracking-normal text-white sm:mt-8 sm:text-[44px] lg:text-[50px] min-[1440px]:text-[54px]">
               Connect physical operations to useful digital signals.
             </h2>

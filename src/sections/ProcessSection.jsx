@@ -55,7 +55,7 @@ const ProcessSection = () => {
     <section id="process" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pb-[12px] pt-0">
       <div className="mx-auto grid min-h-[calc(100svh-25px)] w-full max-w-[1704px] items-center gap-12 bg-[#1C324C] px-5 py-14 sm:gap-14 sm:px-9 sm:py-18 lg:grid-cols-[0.82fr_1.18fr] lg:gap-8 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
         <div className="max-w-[540px] text-white lg:pt-10">
-          <p className="text-[12px] font-normal uppercase tracking-[0.34em] text-white/90">Process</p>
+          <p data-mobile-nav-anchor className="text-[12px] font-normal uppercase tracking-[0.34em] text-white/90">Process</p>
           <h2 className="mt-8 max-w-[820px] text-[34px] font-normal leading-[1.2] tracking-normal sm:text-[44px] lg:text-[50px] min-[1440px]:text-[54px]">
             A clear path from messy operations to dependable systems.
           </h2>

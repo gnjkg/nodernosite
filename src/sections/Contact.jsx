@@ -98,7 +98,7 @@ const handleSubmit = async (event) => {
       >
         <div className="mx-auto flex min-h-[calc(100svh-25px)] w-full max-w-[1704px] flex-col justify-center bg-[#1C324C] px-5 py-10 sm:px-9 sm:py-14 lg:px-16 lg:py-24 xl:px-[200px] xl:py-[118px]">
           <div className="mx-auto w-full max-w-[1450px] overflow-hidden rounded-[26px] bg-[#1C324C]/80 sm:rounded-[30px] min-[1440px]:rounded-[34px]">
-            <div className="grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-8 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">
+            <div data-mobile-nav-anchor className="grid w-full max-w-[1450px] grid-cols-1 items-center gap-10 rounded-[26px] border border-white/18 bg-[radial-gradient(circle_at_34%_0%,rgba(255,255,255,0.18),rgba(255,255,255,0.075)_34%,rgba(255,255,255,0.055)_100%)] px-5 py-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.24),inset_0_0_80px_rgba(255,255,255,0.045),0_34px_100px_rgba(3,18,38,0.3)] backdrop-blur-xl sm:mt-10 sm:rounded-[30px] sm:px-8 sm:py-10 lg:mt-8 lg:grid-cols-2 lg:gap-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16 min-[1440px]:max-w-[1500px] min-[1440px]:rounded-[34px]">
               <div className="flex flex-col items-start justify-center">
                 <div className="max-w-[500px] text-white">
                   <p className="text-[11px] font-normal uppercase tracking-[0.32em] text-white">

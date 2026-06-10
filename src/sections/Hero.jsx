@@ -242,7 +242,7 @@ const Hero = () => {
           <SplitText
             as="h1"
             text={titleText}
-            className="max-w-[859px] text-[34px] font-normal leading-[1.15] tracking-normal sm:text-[42px] lg:text-[50px]"
+            className="max-w-[859px] text-[30px] font-normal leading-[1.15] tracking-normal sm:text-[42px] lg:text-[50px]"
             startDelay={1980}
           />
 

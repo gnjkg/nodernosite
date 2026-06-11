@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import Navbar from '@/components/shared/Navbar'
 import heroVideo from '@/assets/videos/hero-videobg.mp4'
 import buttonShape from '@/assets/images/Button.svg'
@@ -117,6 +118,35 @@ const SplitText = ({ text, as: Tag = 'span', className = '', wordDelay = 42, sta
 )
 
 const Hero = () => {
+  const videoRef = useRef(null)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
+  useEffect(() => {
+    const video = videoRef.current
+
+    if (!video) return undefined
+
+    const attemptPlayback = () => {
+      video.muted = true
+      video.defaultMuted = true
+      video.playsInline = true
+
+      const playPromise = video.play()
+      playPromise?.catch(() => setIsVideoPlaying(false))
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && video.paused) {
+        attemptPlayback()
+      }
+    }
+
+    attemptPlayback()
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
+  }, [])
+
   return (
     <section id="home" className="min-h-svh scroll-mt-[78px] lg:scroll-mt-[70px] bg-[#1C324C] px-[12px] pt-[12px]">
       <style>
@@ -217,21 +247,39 @@ const Hero = () => {
         `}
       </style>
       <div className="hero-video-shell relative min-h-[var(--hero-shell-height)] w-full overflow-hidden rounded-[26px]  px-5 py-6 text-white [--hero-shell-radius:26px] sm:rounded-[32px] sm:px-9 sm:[--hero-shell-radius:32px] lg:rounded-[27px] lg:px-16 lg:py-7 lg:[--hero-shell-radius:27px] xl:px-[200px] min-[1729px]:px-[calc((100%-1304px)/2)]">
-          <video
-        src={heroVideo}
-        autoPlay
-        muted
-        defaultMuted
-        loop
-        playsInline
-        preload="auto"
-        controls={false}
-        disablePictureInPicture
-        aria-hidden="true"
-        tabIndex={-1}
-        x-webkit-airplay="deny"
-  className="hero-video pointer-events-none absolute inset-0 block size-full object-cover object-[67%_76%] md:object-[52%_50%] lg:object-center"> 
-  </video>
+        <img
+          src={heroPoster}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 size-full object-cover object-[67%_76%] md:object-[52%_50%] lg:object-center"
+        />
+        <video
+          ref={videoRef}
+          src={heroVideo}
+          autoPlay
+          muted
+          defaultMuted
+          loop
+          playsInline
+          preload="auto"
+          controls={false}
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          disableRemotePlayback
+          aria-hidden="true"
+          tabIndex={-1}
+          x-webkit-airplay="deny"
+          onCanPlay={() => {
+            const playPromise = videoRef.current?.play()
+            playPromise?.catch(() => setIsVideoPlaying(false))
+          }}
+          onPlaying={() => setIsVideoPlaying(true)}
+          onPause={() => setIsVideoPlaying(false)}
+          onError={() => setIsVideoPlaying(false)}
+          className={`hero-video pointer-events-none absolute inset-0 block size-full object-cover object-[67%_76%] transition-opacity duration-500 md:object-[52%_50%] lg:object-center ${
+            isVideoPlaying ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
         <div className="absolute inset-0 bg-[#0b3f85]/[0.02]" aria-hidden="true" />
 
         <div className="hero-navbar-reveal relative z-20">

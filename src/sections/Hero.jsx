@@ -230,8 +230,8 @@ const Hero = () => {
         aria-hidden="true"
         tabIndex={-1}
         x-webkit-airplay="deny"
-  className="hero-video pointer-events-none absolute inset-0 block size-full object-cover object-[67%_76%] md:object-[52%_50%] lg:object-center"> 
-  </video>
+  className="hero-video pointer-events-none absolute inset-0 block size-full object-cover object-[67%_76%] md:object-[52%_50%] lg:object-center"/> 
+
         <div className="absolute inset-0 bg-[#0b3f85]/[0.02]" aria-hidden="true" />
 
         <div className="hero-navbar-reveal relative z-20">

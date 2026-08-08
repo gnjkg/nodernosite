@@ -173,10 +173,10 @@ const IotSection = () => {
                 Featured IoT Prototype
               </span>
               <h3 className="mt-6 max-w-[430px] text-[32px] font-normal leading-[1.13] tracking-normal text-white sm:mt-8 sm:text-[42px] min-[1440px]:text-[48px]">
-                Real-Time Flood Monitoring
+                Real-Time Flood Monitoring That Works Offline
               </h3>
               <p className="mt-5 max-w-[510px] text-[13px] font-normal leading-[1.6] text-white min-[1440px]:text-[15px]">
-                An IoT system that monitors water levels in real time, transmits live data, and sends automated alerts before flooding occurs.
+                An IoT system that monitors water levels in real time, transmits critical data, and delivers automated alerts before flooding occurs—even without an internet connection.
               </p>
 
               <div className="mt-8">

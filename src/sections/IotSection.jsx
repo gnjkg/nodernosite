@@ -172,7 +172,7 @@ const IotSection = () => {
               <span className="inline-flex max-w-full rounded-full border border-white/70 px-5 py-2 text-[9px] font-normal uppercase tracking-[0.2em] text-white sm:px-7 sm:text-[10px] sm:tracking-[0.24em]">
                 Featured IoT Prototype
               </span>
-              <h3 className="mt-6 max-w-[430px] text-[38px] font-normal leading-[1.13] tracking-normal text-white sm:mt-8 sm:text-[28px] min-[1440px]:text-[42px]">
+              <h3 className="mt-6 max-w-[430px] text-[32px] font-normal leading-[1.13] tracking-normal text-white sm:mt-8 sm:text-[38px] min-[1440px]:text-[42px]">
                 Real-Time Flood Monitoring That Works Offline
               </h3>
               <p className="mt-5 max-w-[510px] text-[13px] font-normal leading-[1.6] text-white min-[1440px]:text-[15px]">

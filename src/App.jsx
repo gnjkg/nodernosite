@@ -6,8 +6,11 @@ import IotSection from '@/sections/IotSection'
 import Contact from '@/sections/Contact'
 import ProcessSection from '@/sections/ProcessSection'
 import Services from '@/sections/Services'
-import { Analytics } from '@vercel/analytics/react'
-const App = () => {
+import Connect from '@/pages/Connect'
+
+const normalizePath = (path) => path.replace(/\/+$/, '') || '/'
+
+const Home = () => {
   return (
     <div className="min-h-screen bg-[#1C324C] text-white">
       <SmoothScroll />
@@ -22,6 +25,14 @@ const App = () => {
       </main>
     </div>
   )
+}
+
+const App = () => {
+  const path = normalizePath(window.location.pathname)
+
+  if (path === '/connect') return <Connect />
+
+  return <Home />
 }
 
 export default App

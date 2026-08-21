@@ -8,7 +8,26 @@ const SmoothScroll = () => {
       window.history.scrollRestoration = 'manual'
     }
 
+    const initialHash = window.location.hash
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const scrollToInitialHash = (lenis) => {
+      if (!initialHash) return false
+
+      const target = document.getElementById(initialHash.slice(1))
+
+      if (!target) return false
+
+      const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY)
+
+      if (lenis) {
+        lenis.scrollTo(top, { immediate: true, force: true })
+      } else {
+        window.scrollTo({ top, left: 0, behavior: 'auto' })
+      }
+
+      return true
+    }
+
     const resetToHero = () => {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
 
@@ -18,6 +37,8 @@ const SmoothScroll = () => {
     }
 
     if (prefersReducedMotion) {
+      if (scrollToInitialHash()) return undefined
+
       resetToHero()
       return undefined
     }
@@ -34,9 +55,13 @@ const SmoothScroll = () => {
     })
 
     window.lenis = lenis
-    lenis.scrollTo(0, { immediate: true, force: true })
 
-    requestAnimationFrame(resetToHero)
+    if (initialHash) {
+      requestAnimationFrame(() => scrollToInitialHash(lenis))
+    } else {
+      lenis.scrollTo(0, { immediate: true, force: true })
+      requestAnimationFrame(resetToHero)
+    }
 
     return () => {
       lenis.destroy()

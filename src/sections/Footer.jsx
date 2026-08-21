@@ -1,6 +1,7 @@
 import buttonBlue from '@/assets/images/Button-Blue.svg'
 import logoWhite from '@/assets/logos/logo-white.svg'
 import logoWordmark from '@/assets/logos/logo-wordmark.svg'
+import { nodernoContact } from '@/data/contact'
 
 const footerLinks = [
   { label: 'SERVICES', href: '#services' },
@@ -10,8 +11,8 @@ const footerLinks = [
 ]
 
 const socialLinks = [
-  { label: 'FACEBOOK', href: 'https://www.facebook.com/profile.php?id=61562167407409' },
-  { label: 'INSTAGRAM', href: 'https://www.instagram.com/noderno.dev'},
+  { label: 'FACEBOOK', href: nodernoContact.facebookUrl },
+  { label: 'INSTAGRAM', href: nodernoContact.instagramUrl },
 ]
 
 const getNavbarClearance = () => (window.matchMedia('(min-width: 1024px)').matches ? 80 : 88)
@@ -139,17 +140,17 @@ const Footer = () => {
             <address className="mt-8 not-italic sm:mt-10">
               <div>
           <a
-            href="mailto:info@noderno.dev"
+            href={nodernoContact.emailHref}
             className="mt-4 text-[16px] inline-block text-sm text-white underline underline-offset-4"
           >
-            info@noderno.dev
+            {nodernoContact.email}
           </a>
 
   <a
-  href="tel:+639241386037"
+  href={nodernoContact.phoneHref}
   className="mt-4 block text-[16px] w-fit pb-1 text-sm text-white underline underline-offset-4"
 >
-  +63 924 138 6037
+  {nodernoContact.phoneDisplay}
 </a>
 </div>
             </address>

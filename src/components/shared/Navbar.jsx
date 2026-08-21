@@ -263,15 +263,20 @@ const Navbar = () => {
   )
 
   useEffect(() => {
+    let canClearTopHash = false
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 18)
 
-      if (window.scrollY < 120 && window.location.hash) {
+      if (canClearTopHash && window.scrollY < 120 && window.location.hash) {
         window.history.replaceState(null, '', '/')
       }
     }
 
     handleScroll()
+    requestAnimationFrame(() => {
+      canClearTopHash = true
+    })
 
     window.addEventListener('scroll', handleScroll, { passive: true })
 
